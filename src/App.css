@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  background: #232323;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menuToggle li {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+.menuToggle li:hover {
+  color: tomato;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+
+  opacity: 0;
+  z-index: 2;
+
+  -webkit-touch-callout: none;
+}
+
+.menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 4;
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+              background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+              opacity 0.55s ease;
+}
+.menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+.menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ span {
+  opacity: 1;
+  transform:  rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+.menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform:  rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+.menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+/* Nav Bar End */
+
+
+.main-bg {
+  width: 100%;
+  margin-top: 120px;
+}
+
+
+
+/* Ranking Start */
+.ranking {
+  height: 50vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+}
+.ranking h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #f1faee;
+  font-size: 3rem;  
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.ranking .roller {
+  height: 4.125rem;
+  line-height: 4rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: tomato;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.ranking .roller .rolltext {
+  position: absolute;
+  top: 0;
+  animation: slide 15s infinite;
+}
+@keyframes slide {
+  0% {
+    top: 0;
   }
-  to {
-    transform: rotate(360deg);
+  10% {
+    top: -4rem;
+  }
+  20% {
+    top: -8rem;
+  }
+  30% {
+    top: -12rem;
+  }
+  40% {
+    top: -16rem;
+  }
+  50% {
+    top: -20rem;
+  }
+  60% {
+    top: -24rem;
+  }
+  70% {
+    top: -28rem;
+  }
+  80% {
+    top: -32rem;
+  }
+  90% {
+    top: -36rem;
   }
 }
+
+/* Ranking End */
