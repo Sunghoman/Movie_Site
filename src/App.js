@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 
 import Nav from './Componentes/Nav';
+import Search from './Componentes/Search'
 import Ranking from './Componentes/Ranking';
 import Movie from './Componentes/Movie';
 
@@ -33,15 +34,19 @@ class App extends React.Component {
 
         <Nav/>
 
+        <Search/>
+
         <img src="/main.png" alt="main" className="main-bg"/>
 
         <Ranking/>
 
+        <h1 className='category'>이런 영화는 어떠세여</h1>
         <div>{ isLoading ? "로딩중임..." : this.state.movies.map(movie => {
           return(
             <Movie
               key={movie.id}
               id={movie.id}
+              url={movie.url}
               year={movie.year}
               title={movie.title}
               rating={movie.rating}

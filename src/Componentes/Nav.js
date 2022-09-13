@@ -13,9 +13,7 @@ const Nav = () => {
 
         <ul className="menu">
           <li>Home</li>
-          <li>Menu1</li>
-          <li>Menu2</li>
-          <li>Menu3</li>
+          <li>About</li>
         </ul>
 
       </div>
